@@ -36,10 +36,12 @@ def main():
     if uploaded_file is not None:
         img = Image.open(uploaded_file)
         img = img.resize((224, 224))
-        img = np.array(img)
-        img = np.expand_dims(img, axis=0)
-        img = img.astype('float32')
-        img = preprocess_input(img)  # Apply preprocessing
+        img_array = tf.keras.preprocessing.image.img_to_array(img)  # Convert image to array
+        img_array = tf.expand_dims(img_array, 0)  # Add batch dimension
+        img_array = preprocess_input(img_array)
+        # img = np.expand_dims(img, axis=0)
+        # img = img.astype('float32')
+        # img = preprocess_input(img)  # Apply preprocessing
         img = img.reshape((1,) + img.shape)  # Add batch dimension
 
         # Load pre-trained ResNet50 model
