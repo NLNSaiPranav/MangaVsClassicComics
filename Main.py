@@ -5,13 +5,33 @@ import pickle
 from tensorflow.keras.applications.resnet50 import preprocess_input
 from tensorflow.keras.applications import ResNet50
 import pandas as pd
-
+import joblib
 # Load the saved model
 
 from google_drive_downloader import GoogleDriveDownloader as gdd
-gdd.download_file_from_google_drive(file_id='1HHJ1XXN6gMOci1Y-3p5K7IX0-kFbSGJe', dest_path='./classifier.pkl', unzip=False)
+# gdd.download_file_from_google_drive(file_id='1HHJ1XXN6gMOci1Y-3p5K7IX0-kFbSGJe', dest_path='./classifier.pkl', unzip=False)
+import gdown
+
+file_id = '1HHJ1XXN6gMOci1Y-3p5K7IX0-kFbSGJe'
+url = f'https://drive.google.com/file/d/1HHJ1XXN6gMOci1Y-3p5K7IX0-kFbSGJe/uc?usp=sharing'
+output = 'classifier.pkl'
+
+# gdown.download(url, output, quiet=False)
+import subprocess
+
+# Define the gdown command
+i = 0 
+
+gdown_command = ['gdown', '--id', '1HHJ1XXN6gMOci1Y-3p5K7IX0-kFbSGJe', '--output', 'classifier.pkl']
+if i == 0:
+# Run the gdown command
+    subprocess.run(gdown_command, check=True)
+    i+=1
 with open('classifier.pkl', 'rb') as f:
     model = pickle.load(f)
+
+# with open('classifier.pkl', 'rb') as f:
+#     model = joblib.load(f)
 # Define the Streamlit app
 def main():
     st.title('Image Upload and Prediction')
