@@ -1,4 +1,4 @@
-streamlit==1.0.0
-gdown==4.0.3
-scikit-learn==1.0.2
-tensorflow==2.6.0
+streamlit
+gdown
+scikit-learn
+tensorflow
