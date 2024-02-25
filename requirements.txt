@@ -2,3 +2,4 @@ streamlit
 tensorflow
 googledrivedownloader
 gdown
+sklearn
