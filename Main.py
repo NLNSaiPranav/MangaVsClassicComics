@@ -43,11 +43,11 @@ def main():
         # img = np.expand_dims(img, axis=0)
         # img = img.astype('float32')
         # img = preprocess_input(img)  # Apply preprocessing
-        img = img.reshape((1,) + img.shape)  # Add batch dimension
+        # img = img.reshape((1,) + img.shape)  # Add batch dimension
 
         # Load pre-trained ResNet50 model
         base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
-        test_features = base_model.predict(img)
+        test_features = base_model.predict(img_array)
         test_features_flat = test_features.reshape(test_features.shape[0], -1)
         prediction= model.predict(test_features_flat)
         st.image(uploaded_file, caption='Uploaded Image.', use_column_width=True)
