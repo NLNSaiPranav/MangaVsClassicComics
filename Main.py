@@ -7,9 +7,11 @@ from tensorflow.keras.applications import ResNet50
 import pandas as pd
 
 # Load the saved model
+
+from google_drive_downloader import GoogleDriveDownloader as gdd
+gdd.download_file_from_google_drive(file_id='1HHJ1XXN6gMOci1Y-3p5K7IX0-kFbSGJe', dest_path='./classifier.pkl', unzip=False)
 with open('classifier.pkl', 'rb') as f:
     model = pickle.load(f)
-
 # Define the Streamlit app
 def main():
     st.title('Image Upload and Prediction')
