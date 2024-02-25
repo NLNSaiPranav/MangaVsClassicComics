@@ -8,7 +8,7 @@ import pandas as pd
 
 # Load the saved model
 
-from google_drive_downloader import GoogleDriveDownloader as gdd
+# from google_drive_downloader import GoogleDriveDownloader as gdd
 import gdown
 
 file_id = '1HHJ1XXN6gMOci1Y-3p5K7IX0-kFbSGJe'
