@@ -37,6 +37,7 @@ def main():
         img = Image.open(uploaded_file)
         img = img.resize((224, 224))
         img = np.array(img)
+        image = np.expand_dims(image, axis=0)
         img = img.astype('float32')
         img = preprocess_input(img)  # Apply preprocessing
         img = img.reshape((1,) + img.shape)  # Add batch dimension
