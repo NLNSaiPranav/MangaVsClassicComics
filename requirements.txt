@@ -1,5 +1,4 @@
 streamlit==1.0.0
-google-drive-downloader==1.0.3
 gdown==4.0.3
 scikit-learn==1.0.2
 tensorflow==2.6.0
