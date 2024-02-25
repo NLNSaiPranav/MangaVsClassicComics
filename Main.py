@@ -18,15 +18,14 @@ output = 'classifier.pkl'
 
 # gdown.download(url, output, quiet=False)
 import subprocess
-
+import os
 # Define the gdown command
-i = 0 
-
 gdown_command = ['gdown', '--id', '1HHJ1XXN6gMOci1Y-3p5K7IX0-kFbSGJe', '--output', 'classifier.pkl']
-if i == 0:
+
 # Run the gdown command
+if not os.path.exists('classifier.pkl'):
+    # Run the gdown command
     subprocess.run(gdown_command, check=True)
-    i+=1
 with open('classifier.pkl', 'rb') as f:
     model = pickle.load(f)
 
